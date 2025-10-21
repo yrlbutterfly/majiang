@@ -1,0 +1,4 @@
+llamafactory-cli train examples/eval/qwen2_5vl_full_sft_annotated.yaml
+llamafactory-cli train examples/eval/qwen2_5vl_full_sft_fetch.yaml
+llamafactory-cli train examples/eval/qwen2_5vl_full_sft_multi.yaml
+llamafactory-cli train examples/eval/qwen2_5vl_full_sft_toukan.yaml

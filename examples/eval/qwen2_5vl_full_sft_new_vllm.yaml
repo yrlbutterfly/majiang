@@ -1,0 +1,33 @@
+# qwen2_5vl_full_sft_vllm_infer.yaml
+model_name_or_path: saves/qwen2_5vl-7b/full/sft/majiang_turn_0928
+template: qwen2_vl
+trust_remote_code: true
+
+# 关键：改为推理后端 vLLM
+infer_backend: vllm
+
+# 数据集用你的测试集（把原来的 eval_dataset 改为 dataset）
+dataset: majiang_turn_new_all
+cutoff_len: 2048
+
+# 多模态与原 eval 保持一致（可选，但对 VL 很重要）
+image_max_pixels: 262144
+video_max_pixels: 16384
+
+# 生成参数（与原 eval 保持一致）
+max_new_tokens: 1024
+temperature: 0.95
+top_p: 0.7
+top_k: 50
+repetition_penalty: 1.0
+
+# vLLM 相关（按资源调整）
+infer_dtype: bfloat16          # 或 auto/float16
+vllm_maxlen: 3072              # 或根据需要设定
+vllm_enforce_eager: true
+vllm_gpu_util: 0.9
+vllm_config:
+  tensor_parallel_size: 4      # 按 GPU 数量/拓扑设置
+  disable_log_stats: true
+
+save_name: results/qwen2_5vl-7b/full/sft/majiang_turn_1009_small_all/generated_predictions.jsonl

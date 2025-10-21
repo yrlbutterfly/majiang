@@ -1,0 +1,4 @@
+llamafactory-cli train examples/eval/qwen2_5vl_full_sft_annotated_origin.yaml
+llamafactory-cli train examples/eval/qwen2_5vl_full_sft_fetch_origin.yaml
+llamafactory-cli train examples/eval/qwen2_5vl_full_sft_multi_origin.yaml
+llamafactory-cli train examples/eval/qwen2_5vl_full_sft_toukan_origin.yaml
